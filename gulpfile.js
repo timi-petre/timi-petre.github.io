@@ -4,6 +4,7 @@ const gulp = require('gulp')
 const sass = require('gulp-sass')(require('node-sass'))
 const concat = require('gulp-concat')
 const cleanCSS = require('gulp-clean-css')
+const minify = require('gulp-minify')
 var rename = require('gulp-rename')
 
 // ca sa transformam fisiere sass/scss in fisiere css: gulp sass
@@ -44,9 +45,9 @@ function jstomin() {
 
 // optional pentru imagini : gulp images
 
-const imagemin = require('gulp-imagemin')
-const imageminMozjpeg = require('imagemin-mozjpeg')
-const imageResize = require('gulp-image-resize')
+// const imagemin = require('gulp-imagemin')
+// const imageminMozjpeg = require('imagemin-mozjpeg')
+// const imageResize = require('gulp-image-resize')
 
 gulp.task('images', () => {
 	//   specificam dimensiunea imaginilor
