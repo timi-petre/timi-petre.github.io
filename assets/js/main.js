@@ -158,34 +158,6 @@
 		true,
 	)
 
-	//  add dark mode from html
-	let darkMode = localStorage.getItem('darkMode')
-	const enableDarkMode = () => {
-		document.body.classList.add('darkmode')
-		localStorage.setItem('darkMode', 'enabled')
-	}
-
-	const disableDarkMode = () => {
-		document.body.classList.remove('darkmode')
-		localStorage.setItem('darkMode', null)
-	}
-
-	if (darkMode === 'enabled') {
-		enableDarkMode()
-	}
-
-	//  toggle dark mode
-
-	const toggleDarkMode = () => {
-		darkMode = localStorage.getItem('darkMode')
-
-		if (darkMode !== 'enabled') {
-			enableDarkMode()
-		} else {
-			disableDarkMode()
-		}
-	}
-
 	/**
 	 * Scroll with ofset on page load with hash links in the url
 	 */
