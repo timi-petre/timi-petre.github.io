@@ -3,21 +3,21 @@
 --------------------------------------------------------------*/
 /* demo 22*/
 :root {
-  --mycolor:#611097;
-  --mybackground:rgba(16, 110, 234, 0.8);
-  --secondary-color:#536390;
-  --font-color:#222222;
-  --heading-color:#292922;
-  --secondary-bg:#f6f9fe; }
+  --mycolor: #d1550d;
+  --mybackground: #161625;
+  --secondary-color: #6307af;
+  --font-color: #e1e1ff;
+  --heading-color: #818cab;
+  --bs-body-bg: #0c0b0c;
+  --secondary-bg: #090a0aea; }
 
 [data-theme="dark"] {
-  --mycolor:#d1550d;
-  --mybackground:#161625;
-  --secondary-color:#6307af;
-  --font-color:#e1e1ff;
-  --heading-color:#818cab;
-  --bs-body-bg:#0c0b0c;
-  --secondary-bg:#090a0aea; }
+  --mycolor: #611097;
+  --mybackground: rgba(16, 110, 234, 0.8);
+  --secondary-color: #536390;
+  --font-color: #222222;
+  --heading-color: #292922;
+  --secondary-bg: #f6f9fe; }
 
 body {
   font-family: "Open Sans", sans-serif;
