@@ -1,5 +1,89 @@
 ;(function () {
-	'use strict'
+	;('use strict')
+
+	// data-theme="dark" from html
+	// const checkbox = document.getElementById('checkbox')
+	// const body = document.body
+
+	// // Check if dark mode is enabled
+	// if (localStorage.getItem('theme') === 'dark') {
+	// 	checkbox.checked = true
+	// 	enableDarkMode()
+	// }
+
+	// // Add event listener to the checkbox
+	// checkbox.addEventListener('change', () => {
+	// 	// Toggle theme
+	// 	if (checkbox.checked) {
+	// 		enableDarkMode()
+	// 	} else {
+	// 		disableDarkMode()
+	// 	}
+	// })
+
+	// function enableDarkMode() {
+	// 	// Add 'data-theme' attribute to the body
+	// 	body.setAttribute('data-theme', 'dark')
+	// 	// Set theme state to 'dark' in local storage
+	// 	localStorage.setItem('theme', 'dark')
+	// }
+
+	// function disableDarkMode() {
+	// 	// Remove 'data-theme' attribute from the body
+	// 	body.removeAttribute('data-theme')
+	// 	// Set theme state to 'light' in local storage
+	// 	localStorage.setItem('theme', 'light')
+	// }
+
+	// // Apply saved theme on page load
+	// const savedTheme = localStorage.getItem('theme')
+	// if (savedTheme) {
+	// 	body.setAttribute('data-theme', savedTheme)
+	// }
+	const checkbox = document.getElementById('checkbox')
+	const body = document.body
+	const imagine = document.getElementById('myImg')
+	const temaKey = 'tema'
+
+	// Check if dark mode is enabled
+	if (localStorage.getItem(temaKey) === 'dark') {
+		checkbox.checked = true
+		enableDarkMode()
+	}
+
+	// Add event listener to the checkbox
+	checkbox.addEventListener('change', () => {
+		if (checkbox.checked) {
+			enableDarkMode()
+		} else {
+			disableDarkMode()
+		}
+	})
+
+	function enableDarkMode() {
+		body.setAttribute('data-theme', 'dark')
+		imagine.src = 'assets/img/logo-no-background.png'
+		imagine.classList.add('logo-img')
+		localStorage.setItem(temaKey, 'dark')
+	}
+
+	function disableDarkMode() {
+		body.removeAttribute('data-theme')
+		imagine.src = 'assets/img/logo1.png'
+		imagine.classList.remove('logo-img')
+		localStorage.setItem(temaKey, 'light')
+	}
+
+	// Apply saved theme on page load
+	const savedTheme = localStorage.getItem(temaKey)
+	if (savedTheme) {
+		body.setAttribute('data-theme', savedTheme)
+		imagine.classList.toggle('logo-img', savedTheme === 'dark')
+		imagine.src =
+			savedTheme === 'dark'
+				? 'assets/img/logo-no-background.png'
+				: 'assets/img/logo1.png'
+	}
 
 	/**
 	 * Easy selector helper function
