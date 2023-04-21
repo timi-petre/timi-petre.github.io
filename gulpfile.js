@@ -1,19 +1,19 @@
-'use strict'
-const gulp = require('gulp')
+'use strict';
+const gulp = require('gulp');
 // Load plugin
-const sass = require('gulp-sass')(require('node-sass'))
+const sass = require('gulp-sass')(require('node-sass'));
 // const concat = require('gulp-concat')
-const cleanCSS = require('gulp-clean-css')
+const cleanCSS = require('gulp-clean-css');
 // const minify = require('gulp-minify')
-var rename = require('gulp-rename')
+var rename = require('gulp-rename');
 
 // ca sa transformam fisiere sass/scss in fisiere css: gulp sass
 gulp.task('sasstocss', function () {
 	return gulp
 		.src('dev/sass/style.scss')
 		.pipe(sass().on('error', sass.logError))
-		.pipe(gulp.dest('assets/css'))
-})
+		.pipe(gulp.dest('assets/css'));
+});
 
 // ca sa optimizam fisierele css : gulp css
 gulp.task('css', () => {
@@ -21,8 +21,8 @@ gulp.task('css', () => {
 		.src('assets/css/style.css')
 		.pipe(
 			cleanCSS({ debug: true }, details => {
-				console.log(`${details.name}: ${details.stats.originalSize}`)
-				console.log(`${details.name}: ${details.stats.minifiedSize}`)
+				console.log(`${details.name}: ${details.stats.originalSize}`);
+				console.log(`${details.name}: ${details.stats.minifiedSize}`);
 			}),
 		)
 		.pipe(
@@ -30,8 +30,8 @@ gulp.task('css', () => {
 				suffix: '.min',
 			}),
 		)
-		.pipe(gulp.dest('assets/css/'))
-})
+		.pipe(gulp.dest('assets/css/'));
+});
 
 // ca sa optimizam fisierele js : gulp css
 // function jstomin() {
@@ -55,8 +55,8 @@ gulp.task('images', () => {
 		{ width: 576, quality: 100, suffix: 'small' },
 		{ width: 768, quality: 60, suffix: 'medium' },
 		{ width: 992, quality: 80, suffix: 'large' },
-	]
-	let stream
+	];
+	let stream;
 	sizes.forEach(size => {
 		stream = gulp
 			//     calea catre imaginile pe care le dorim sa le optimizam
@@ -69,7 +69,7 @@ gulp.task('images', () => {
 			//       add suffix to image
 			.pipe(
 				rename(path => {
-					path.basename += `-${size.suffix}`
+					path.basename += `-${size.suffix}`;
 				}),
 			)
 			//     reduce image quality based on the size
@@ -86,12 +86,12 @@ gulp.task('images', () => {
 				),
 			)
 			//     output optimized images to a destination folder
-			.pipe(gulp.dest('assets/images'))
-	})
-	return stream
-})
+			.pipe(gulp.dest('assets/images'));
+	});
+	return stream;
+});
 
 // genereaza in mod automat fisierul css la modificarile diin fisierele scss
 gulp.task('sass:watch', function () {
-	gulp.watch('dev/sass/style.scss', gulp.series('sasstocss', 'css'))
-})
+	gulp.watch('dev/sass/style.scss', gulp.series('sasstocss', 'css'));
+});
